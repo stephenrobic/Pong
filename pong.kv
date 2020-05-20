@@ -6,7 +6,8 @@
         Ellipse:
             pos: self.pos
             size: self.size
-    color: custom_color(a)
+        Color:
+            rgba: 0, 1, 0, .5
 
 <PongPaddle>:
     size: 25, 200
@@ -14,6 +15,8 @@
         Rectangle:
             pos:self.pos
             size:self.size
+        Color:
+            rgba: 1, 0, 1, .5
 
 <PongGame>:
     ball: pong_ball
