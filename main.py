@@ -1,10 +1,13 @@
 from kivy.app import App
-from kivy.uix.widget import Widget
+from kivy.clock import Clock
 from kivy.properties import (
     NumericProperty, ReferenceListProperty, ObjectProperty
 )
+from kivy.uix.widget import Widget
+from kivy.uix.button import Button
 from kivy.vector import Vector
-from kivy.clock import Clock
+from kivy.core.window import Window
+Window.size = (1600, 800)
 
 
 class PongPaddle(Widget):
@@ -23,7 +26,6 @@ class PongBall(Widget):
     velocity_x = NumericProperty(0)
     velocity_y = NumericProperty(0)
     velocity = ReferenceListProperty(velocity_x, velocity_y)
-
     def move(self):
         self.pos = Vector(*self.velocity) + self.pos
 
@@ -58,7 +60,7 @@ class PongGame(Widget):
 
     def on_touch_move(self, touch):
         if touch.x < self.width / 3:
-            self.player1.center_y = touch.y
+            self.player1.center_y = touch.b
         if touch.x > self.width - self.width / 3:
             self.player2.center_y = touch.y
 

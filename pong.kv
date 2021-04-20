@@ -3,11 +3,12 @@
 <PongBall>:
     size: 50, 50
     canvas:
+        Color:
+            rgba: 1,0,1,.7
+
         Ellipse:
             pos: self.pos
             size: self.size
-        Color:
-            rgba: 0, 1, 0, .5
 
 <PongPaddle>:
     size: 25, 200
@@ -15,16 +16,19 @@
         Rectangle:
             pos:self.pos
             size:self.size
-        Color:
-            rgba: 1, 0, 1, .5
 
 <PongGame>:
     ball: pong_ball
     player1: player_left
     player2: player_right
 
+    #vertical line/bar dividing the game in half
     canvas:
+        #sets the color to blood red
+        Color:
+            rgba: 1,0,0,.3
         Rectangle:
+            #pos is 5 to the left of canter
             pos: self.center_x - 5, 0
             size: 10, self.height
 
